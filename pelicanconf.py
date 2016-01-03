@@ -20,8 +20,12 @@ DEFAULT_METADATA = {
         'status': 'draft',
         }
 
+# Plugins
+PLUGIN_PATHS = ['../pelican-plugins',]
+PLUGINS = ['tag_cloud',]
+
 # Feed generation is usually not desired when developing
-FEED_DOMAIN = 'www.ptanguy.fr'
+FEED_DOMAIN = None
 FEED_ATOM = None
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -54,7 +58,7 @@ TAG_SAVE_AS = "tag/{slug}/index.html"
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),)
+#LINKS = (('Pelican', 'http://getpelican.com/'),)
 
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com/phtanguy'),
@@ -69,11 +73,13 @@ BOOTSTRAP_THEME = 'cosmo'
 #Template settings
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
-TAG_CLOUD_MAX_ITEMS = 10
 
 #Sidebar options
-DISPLAY_TAGS_ON_SIDEBAR = True
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_TAGS_ON_SIDEBAR = True
+TAG_CLOUD_STEPS = 4
+TAG_CLOUD_MAX_ITEMS = 10
+TAG_CLOUD_SORTING = 'size'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
