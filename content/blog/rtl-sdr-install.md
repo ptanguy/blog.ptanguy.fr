@@ -44,4 +44,4 @@ Et enfin, on fait un petit test du démodulateur FM pour écouter une radio:
 
     $ rtl_fm -f 93.5M -s 192000 -r 48000 - | aplay -r 48k -f S16_LE -t raw -c 1
     
-
+Le wiki officiel est évidemment aussi une bonne source d'information: http://osmocom.org/projects/sdr/wiki/rtl-sdr
