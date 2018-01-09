@@ -1,7 +1,7 @@
 Title: Site Web Statique
 Date: 2015-06-20
 Authors: ptanguy
-slug: site-static
+slug: website-static
 Summary: Retour d'expérience sur l'utilisation de générateur de site web statique en Python
 Status: draft
 
