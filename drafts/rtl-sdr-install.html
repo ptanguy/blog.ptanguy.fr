@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>misc - ptanguy's blog</title>
+    <title>RTL-SDR Installation - ptanguy's blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,19 @@
 
 
 
+<link rel="canonical" href="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html">
 
-    <meta name="author" content="ptanguy" />
-    <meta name="keywords" content="misc" />
+        <meta name="author" content="ptanguy" />
+        <meta name="description" content="Installation des outils pour utiliser une clé USB RTL2832U" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="ptanguy's blog" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="ptanguy's blog"/>
-        <meta property="og:url" content="http://blog.ptanguy.fr"/>
-        <meta property="og:description" content="ptanguy's blog"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="RTL-SDR Installation"/>
+        <meta property="og:url" content="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html"/>
+        <meta property="og:description" content="Installation des outils pour utiliser une clé USB RTL2832U"/>
+        <meta property="article:published_time" content="2017-06-15" />
+            <meta property="article:section" content="misc" />
+            <meta property="article:author" content="ptanguy" />
 
 
     <!-- Bootstrap -->
@@ -71,13 +74,77 @@ ptanguy's blog            </a>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <article>
-                <h2><a href="http://blog.ptanguy.fr/posts/2015/11/29/hello-world/">Hello World</a></h2>
-                <div class="summary"><p>Welcome article</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.ptanguy.fr/posts/2015/11/29/hello-world/">more ...</a>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html"
+                       rel="bookmark"
+                       title="Permalink to RTL-SDR Installation">
+                        RTL-SDR Installation
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-06-15T00:00:00+02:00"> Jeu 15 juin 2017</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                <p>Pour l'installation du logiciel j'ai suivi le guide disponible à l'adresse suivant https://ranous.files.wordpress.com/2016/03/rtl-sdr4linux_quickstartv10-16.pdf .</p>
+<p>En résumé cela donne ça:</p>
+<div class="highlight"><pre><span></span>$ git clone git://git.osmocom.org/rtl-sdr.git
+$ <span class="nb">cd</span> rtl-sdr/
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ../ -DINSTALL_UDEV_RULES<span class="o">=</span>ON
+$ make
+$ sudo make install
+$ sudo ldconfig
+$ sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
+</pre></div>
+
+
+<p>Il ne faut pas charger le driver de la clé usb qui charger par défaut en éditant le fichier:</p>
+<div class="highlight"><pre><span></span>$ sudo vim /etc/modprobe.d/blacklist-rtl.conf
+</pre></div>
+
+
+<p>et en ajoutant la ligne suivante: blacklist dvb_usb_rtl28xxu</p>
+<p>On vérifie ensuite l'installation:</p>
+<div class="highlight"><pre><span></span>    $ rtl_test -t
+    Found 1 device(s):
+      0:  Generic, RTL2832U, SN: 77771111153705700
+
+      Using device 0: Generic RTL2832U
+      Found Rafael Micro R820T tuner
+      Supported gain values (29): 0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7 20.7 22.9 25.4 28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 
+      [R82XX] PLL not locked!
+      Sampling at 2048000 S/s.
+      No E4000 tuner found, aborting.
+</pre></div>
+
+
+<p>Et enfin, on fait un petit test du démodulateur FM pour écouter une radio:</p>
+<div class="highlight"><pre><span></span>$ rtl_fm -f 93.5M -s <span class="m">192000</span> -r <span class="m">48000</span> - <span class="p">|</span> aplay -r 48k -f S16_LE -t raw -c 1
+</pre></div>
+
+
+<p>Le wiki officiel est évidemment aussi une bonne source d'information: http://osmocom.org/projects/sdr/wiki/rtl-sdr</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
     </div>
@@ -86,7 +153,7 @@ ptanguy's blog            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 ptanguy
+         <div class="col-xs-10">&copy; 2016 ptanguy
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
