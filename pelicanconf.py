@@ -9,7 +9,7 @@ SITEURL = ''
 USE_FOLDER_AS_CATEGORY = False
 
 PATH = 'content'
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images','CNAME']
 ARTICLE_PATHS = ['blog']
 
 TIMEZONE = 'Europe/Paris'
