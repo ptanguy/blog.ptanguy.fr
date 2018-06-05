@@ -20,23 +20,19 @@ DEFAULT_METADATA = {
         'status': 'draft',
         }
 
-# Plugins
-PLUGIN_PATHS = ['../pelican-plugins',]
-PLUGINS = ['tag_cloud',]
-
 # Feed generation is usually not desired when developing
-FEED_DOMAIN = None
-FEED_ATOM = None
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-FEED_RSS = 'feeds/rss.xml'
-CATEGORY_FEED_RSS = 'feeds/category/%s.rss.xml'
-FEED_ALL_RSS = 'feeds/all.rss.xml'
-TRANSLATION_FEED_ATOM = None
-
-# Feeds
-FEEDS = (('All posts', 'feeds/all.rss.xml'),
-                 ('Category', 'feeds/category'),)
+#FEED_DOMAIN = None
+#FEED_ATOM = None
+#FEED_ALL_ATOM = None
+#CATEGORY_FEED_ATOM = None
+#FEED_RSS = 'feeds/rss.xml'
+#CATEGORY_FEED_RSS = 'feeds/category/%s.rss.xml'
+#FEED_ALL_RSS = 'feeds/all.rss.xml'
+#TRANSLATION_FEED_ATOM = None
+#
+## Feeds
+#FEEDS = (('All posts', 'feeds/all.rss.xml'),
+#                 ('Category', 'feeds/category'),)
 
 
 
@@ -76,11 +72,6 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 #Sidebar options
 HIDE_SIDEBAR = True
-DISPLAY_CATEGORIES_ON_SIDEBAR = False
-DISPLAY_TAGS_ON_SIDEBAR = False
-TAG_CLOUD_STEPS = 4
-TAG_CLOUD_MAX_ITEMS = 10
-TAG_CLOUD_SORTING = 'size'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
