@@ -11,7 +11,7 @@ Jekyll (Ruby) associé à github pour la génération et l'hébergement des page
 À titre d'exemple, le site [staticgen](https://www.staticgen.com) répertorie un nombre important de ces générateurs et cela dans plusieurs languages de programmation.
 En ce qui me concerne, j'ai testé les générateurs écrits en Python suivant: Hyde, Pélican et Urubu. 
 Suivant le générateur choisi, le cadriciel sera généralement plus ou moins orienté.
-Par exemple, Pélican est vraiment orienté pour l'écriture d'un blog alors que Urubu va permettre de générer un site web quelconque plus librement.
+Par exemple, de mon point de vue Pélican est vraiment orienté pour l'écriture d'un blog alors que Urubu va permettre de générer un site web quelconque plus librement.
 De même, d'autre comme Mkdocs ou Sphinx vont permettre d'écrire de la documentation en reStructuredText ou Markdown et la générer sous forme de page web Html. 
 
 

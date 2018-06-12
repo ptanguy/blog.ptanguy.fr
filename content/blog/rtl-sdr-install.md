@@ -3,7 +3,7 @@ Date: 2017-06-15
 Authors: ptanguy
 slug: rtl-sdr-install
 Summary: Installation des outils pour utiliser une clé USB RTL2832U
-Status: draft
+Status: published
 
 Pour l'installation du logiciel j'ai suivi le guide disponible à l'adresse suivant https://ranous.files.wordpress.com/2016/03/rtl-sdr4linux_quickstartv10-16.pdf .
 
