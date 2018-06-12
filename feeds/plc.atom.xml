@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ptanguy's blog - PLC</title><link href="http://blog.ptanguy.fr/" rel="alternate"></link><link href="http://blog.ptanguy.fr/feeds/plc.atom.xml" rel="self"></link><id>http://blog.ptanguy.fr/</id><updated>2016-01-03T00:00:00+01:00</updated><entry><title>Software Defined Radio PLC demonstrator</title><link href="http://blog.ptanguy.fr/posts/2016/01/03/software-defined-radio-plc-demonstrator/" rel="alternate"></link><published>2016-01-03T00:00:00+01:00</published><updated>2016-01-03T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2016-01-03:/posts/2016/01/03/software-defined-radio-plc-demonstrator/</id><summary type="html">&lt;p&gt;Rapid prototyping solutions are essential to test PHY/MAC layer algorithms in real situations. We propose an example of rapid prototyping for PLC communication with a SDR platform (USRP2) from Ettus Research.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;PHY rapid prototyping&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ptanguy's blog</title><link href="http://blog.ptanguy.fr/" rel="alternate"></link><link href="http://blog.ptanguy.fr/feeds/plc.atom.xml" rel="self"></link><id>http://blog.ptanguy.fr/</id><updated>2016-01-03T00:00:00+01:00</updated><entry><title>Software Defined Radio PLC demonstrator</title><link href="http://blog.ptanguy.fr/posts/2016/01/03/software-defined-radio-plc-demonstrator/" rel="alternate"></link><updated>2016-01-03T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2016-01-03:posts/2016/01/03/software-defined-radio-plc-demonstrator/</id><summary type="html">&lt;h2&gt;PHY rapid prototyping&lt;/h2&gt;
 &lt;p&gt;It is important to evaluate digital communications algorithms in real-world.
 To do that, it is essential to build a demonstrator to test the algorithm developed during the simulation phase.
 This task is difficult, expensive and can take a lot of time.
@@ -12,22 +12,22 @@ In our work, the implementation on a GPP brings the flexibility to our demonstra
 &lt;p&gt;For the hardware part we used the USRP2 card of the ETTUS Research society.
 For the software part we used Matlab and GNUradio.
 The demonstrator can achieve a maximum bandwidth of 12.5 MHz.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of general demonstrator" src="http://blog.ptanguy.fr/images/scheme_general_usrp.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of general demonstrator" src="http://blog.ptanguy.fr/images/scheme_general_usrp.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Results&lt;/h2&gt;
 &lt;p&gt;Multi-carrier modulations have been proposed to achieve high data rates.
 More precisely, adaptive multi-carrier modulations (bit-loading) seem to be a good choice allowing robust transmission on the power line channel.
 We show here some results on a Peugeot 407SW for the path GF.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of the car" src="http://blog.ptanguy.fr/images/voiture.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of the car" src="http://blog.ptanguy.fr/images/voiture.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Several frames are sent on the PLC channel at the point G.
 The figure on the left shows the received frames at the point F.
 We can observe several frames and different impulsive noises.
 On the receiver part, time synchronization, phase error correction due to timing error, SNR estimation and bit-loading have been computed.
 The figure on the right shows the results of the bit-loading algorithm for a target BER of 1e-3.
 In this case, the bit rate will be 20.3 Mbps.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of received signal" src="http://blog.ptanguy.fr/images/Rx_GF_scenarioStatique1_Zoom.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of bit-loading result" src="http://blog.ptanguy.fr/images/Bitloading_GF_scenarioStatique1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of received signal" src="http://blog.ptanguy.fr/images/Rx_GF_scenarioStatique1_Zoom.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of bit-loading result" src="http://blog.ptanguy.fr/images/Bitloading_GF_scenarioStatique1.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Ongoing work&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;PHY layer in GNUradio&lt;/li&gt;
 &lt;li&gt;AGC control from GNUradio&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SDR"></category><category term="PLC"></category><category term="PHY"></category><category term="USRP2"></category><category term="GNURadio"></category><category term="Matlab"></category></entry></feed>
+&lt;/ul&gt;</summary><category term="SDR"></category><category term="PLC"></category><category term="PHY"></category><category term="USRP2"></category><category term="GNURadio"></category><category term="Matlab"></category></entry></feed>

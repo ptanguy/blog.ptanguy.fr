@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ptanguy's blog</title><link href="http://blog.ptanguy.fr/" rel="alternate"></link><link href="http://blog.ptanguy.fr/feeds/all.atom.xml" rel="self"></link><id>http://blog.ptanguy.fr/</id><updated>2016-01-03T00:00:00+01:00</updated><entry><title>Software Defined Radio PLC demonstrator</title><link href="http://blog.ptanguy.fr/posts/2016/01/03/software-defined-radio-plc-demonstrator/" rel="alternate"></link><published>2016-01-03T00:00:00+01:00</published><updated>2016-01-03T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2016-01-03:/posts/2016/01/03/software-defined-radio-plc-demonstrator/</id><summary type="html">&lt;p&gt;Rapid prototyping solutions are essential to test PHY/MAC layer algorithms in real situations. We propose an example of rapid prototyping for PLC communication with a SDR platform (USRP2) from Ettus Research.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;PHY rapid prototyping&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ptanguy's blog</title><link href="http://blog.ptanguy.fr/" rel="alternate"></link><link href="http://blog.ptanguy.fr/feeds/all.atom.xml" rel="self"></link><id>http://blog.ptanguy.fr/</id><updated>2017-06-15T00:00:00+02:00</updated><entry><title>RTL-SDR Installation</title><link href="http://blog.ptanguy.fr/posts/2017/06/15/rtl-sdr-install/" rel="alternate"></link><updated>2017-06-15T00:00:00+02:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2017-06-15:posts/2017/06/15/rtl-sdr-install/</id><summary type="html">&lt;p&gt;Pour l'installation du logiciel j'ai suivi le guide disponible à l'adresse suivant https://ranous.files.wordpress.com/2016/03/rtl-sdr4linux_quickstartv10-16.pdf .&lt;/p&gt;
+&lt;p&gt;En résumé cela donne ça:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone git://git.osmocom.org/rtl-sdr.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; rtl-sdr/
+$ mkdir build
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; build
+$ cmake ../ -DINSTALL_UDEV_RULES&lt;span class="o"&gt;=&lt;/span&gt;ON
+$ make
+$ sudo make install
+$ sudo ldconfig
+$ sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Il ne faut pas charger le driver de la clé usb qui charger par défaut en éditant le fichier:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vim /etc/modprobe.d/blacklist-rtl.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;et en ajoutant la ligne suivante: blacklist dvb_usb_rtl28xxu&lt;/p&gt;
+&lt;p&gt;On vérifie ensuite l'installation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    $ rtl_test -t
+    Found 1 device(s):
+      0:  Generic, RTL2832U, SN: 77771111153705700
+
+      Using device 0: Generic RTL2832U
+      Found Rafael Micro R820T tuner
+      Supported gain values (29): 0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7 20.7 22.9 25.4 28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 
+      [R82XX] PLL not locked!
+      Sampling at 2048000 S/s.
+      No E4000 tuner found, aborting.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Et enfin, on fait un petit test du démodulateur FM pour écouter une radio:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rtl_fm -f 93.5M -s &lt;span class="m"&gt;192000&lt;/span&gt; -r &lt;span class="m"&gt;48000&lt;/span&gt; - &lt;span class="p"&gt;|&lt;/span&gt; aplay -r 48k -f S16_LE -t raw -c 1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Le wiki officiel est évidemment aussi une bonne source d'information: http://osmocom.org/projects/sdr/wiki/rtl-sdr&lt;/p&gt;</summary></entry><entry><title>Software Defined Radio PLC demonstrator</title><link href="http://blog.ptanguy.fr/posts/2016/01/03/software-defined-radio-plc-demonstrator/" rel="alternate"></link><updated>2016-01-03T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2016-01-03:posts/2016/01/03/software-defined-radio-plc-demonstrator/</id><summary type="html">&lt;h2&gt;PHY rapid prototyping&lt;/h2&gt;
 &lt;p&gt;It is important to evaluate digital communications algorithms in real-world.
 To do that, it is essential to build a demonstrator to test the algorithm developed during the simulation phase.
 This task is difficult, expensive and can take a lot of time.
@@ -12,25 +51,25 @@ In our work, the implementation on a GPP brings the flexibility to our demonstra
 &lt;p&gt;For the hardware part we used the USRP2 card of the ETTUS Research society.
 For the software part we used Matlab and GNUradio.
 The demonstrator can achieve a maximum bandwidth of 12.5 MHz.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of general demonstrator" src="http://blog.ptanguy.fr/images/scheme_general_usrp.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of general demonstrator" src="http://blog.ptanguy.fr/images/scheme_general_usrp.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Results&lt;/h2&gt;
 &lt;p&gt;Multi-carrier modulations have been proposed to achieve high data rates.
 More precisely, adaptive multi-carrier modulations (bit-loading) seem to be a good choice allowing robust transmission on the power line channel.
 We show here some results on a Peugeot 407SW for the path GF.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of the car" src="http://blog.ptanguy.fr/images/voiture.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of the car" src="http://blog.ptanguy.fr/images/voiture.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Several frames are sent on the PLC channel at the point G.
 The figure on the left shows the received frames at the point F.
 We can observe several frames and different impulsive noises.
 On the receiver part, time synchronization, phase error correction due to timing error, SNR estimation and bit-loading have been computed.
 The figure on the right shows the results of the bit-loading algorithm for a target BER of 1e-3.
 In this case, the bit rate will be 20.3 Mbps.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of received signal" src="http://blog.ptanguy.fr/images/Rx_GF_scenarioStatique1_Zoom.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of bit-loading result" src="http://blog.ptanguy.fr/images/Bitloading_GF_scenarioStatique1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of received signal" src="http://blog.ptanguy.fr/images/Rx_GF_scenarioStatique1_Zoom.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of bit-loading result" src="http://blog.ptanguy.fr/images/Bitloading_GF_scenarioStatique1.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Ongoing work&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;PHY layer in GNUradio&lt;/li&gt;
 &lt;li&gt;AGC control from GNUradio&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SDR"></category><category term="PLC"></category><category term="PHY"></category><category term="USRP2"></category><category term="GNURadio"></category><category term="Matlab"></category></entry><entry><title>Hello World</title><link href="http://blog.ptanguy.fr/posts/2015/11/29/hello-world/" rel="alternate"></link><published>2015-11-29T00:00:00+01:00</published><updated>2015-11-29T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2015-11-29:/posts/2015/11/29/hello-world/</id><summary type="html">&lt;p&gt;Welcome article&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome on my professional blog!&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="SDR"></category><category term="PLC"></category><category term="PHY"></category><category term="USRP2"></category><category term="GNURadio"></category><category term="Matlab"></category></entry><entry><title>Hello World</title><link href="http://blog.ptanguy.fr/posts/2015/11/29/hello-world/" rel="alternate"></link><updated>2015-11-29T00:00:00+01:00</updated><author><name>ptanguy</name></author><id>tag:blog.ptanguy.fr,2015-11-29:posts/2015/11/29/hello-world/</id><summary type="html">&lt;p&gt;Welcome on my professional blog!&lt;/p&gt;
 &lt;p&gt;The content of articles will be all related to my professional activities.&lt;/p&gt;
 &lt;p&gt;Concerning the language, I decided to write in english articles that I considered to new and enough interesting to be shared with internaltional community.
-Otherwise, articles will be written in my native language (french).&lt;/p&gt;</content></entry></feed>
+Otherwise, articles will be written in my native language (french).&lt;/p&gt;</summary></entry></feed>

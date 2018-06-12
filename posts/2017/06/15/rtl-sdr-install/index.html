@@ -9,7 +9,7 @@
 
 
 
-<link rel="canonical" href="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html">
+<link rel="canonical" href="http://blog.ptanguy.fr/posts/2017/06/15/rtl-sdr-install/">
 
         <meta name="author" content="ptanguy" />
         <meta name="description" content="Installation des outils pour utiliser une clé USB RTL2832U" />
@@ -17,7 +17,7 @@
         <meta property="og:site_name" content="ptanguy's blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="RTL-SDR Installation"/>
-        <meta property="og:url" content="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html"/>
+        <meta property="og:url" content="http://blog.ptanguy.fr/posts/2017/06/15/rtl-sdr-install/"/>
         <meta property="og:description" content="Installation des outils pour utiliser une clé USB RTL2832U"/>
         <meta property="article:published_time" content="2017-06-15" />
             <meta property="article:section" content="misc" />
@@ -55,22 +55,28 @@
 ptanguy's blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://blog.ptanguy.fr/pages/about.html">
+                             About
+                          </a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://blog.ptanguy.fr/">Get Started</a></li>
+              <li><a href="http://blog.ptanguy.fr/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
-
-<!-- Content -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
         <div class="col-lg-12">
-
     <section id="content">
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://blog.ptanguy.fr/drafts/rtl-sdr-install.html"
+                    <a href="http://blog.ptanguy.fr/posts/2017/06/15/rtl-sdr-install/"
                        rel="bookmark"
                        title="Permalink to RTL-SDR Installation">
                         RTL-SDR Installation
@@ -83,7 +89,7 @@ ptanguy's blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-06-15T00:00:00+02:00"> jeu. 15 juin 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-06-15T00:00:00+02:00"> Jeu 15 juin 2017</time>
     </span>
 
 
@@ -95,7 +101,7 @@ ptanguy's blog            </a>
                 </div>
                 <p>Pour l'installation du logiciel j'ai suivi le guide disponible à l'adresse suivant https://ranous.files.wordpress.com/2016/03/rtl-sdr4linux_quickstartv10-16.pdf .</p>
 <p>En résumé cela donne ça:</p>
-<div class="highlight"><pre>$ git clone git://git.osmocom.org/rtl-sdr.git
+<div class="highlight"><pre><span></span>$ git clone git://git.osmocom.org/rtl-sdr.git
 $ <span class="nb">cd</span> rtl-sdr/
 $ mkdir build
 $ <span class="nb">cd</span> build
@@ -108,13 +114,13 @@ $ sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
 
 
 <p>Il ne faut pas charger le driver de la clé usb qui charger par défaut en éditant le fichier:</p>
-<div class="highlight"><pre>$ sudo vim /etc/modprobe.d/blacklist-rtl.conf
+<div class="highlight"><pre><span></span>$ sudo vim /etc/modprobe.d/blacklist-rtl.conf
 </pre></div>
 
 
 <p>et en ajoutant la ligne suivante: blacklist dvb_usb_rtl28xxu</p>
 <p>On vérifie ensuite l'installation:</p>
-<div class="highlight"><pre>    $ rtl_test -t
+<div class="highlight"><pre><span></span>    $ rtl_test -t
     Found 1 device(s):
       0:  Generic, RTL2832U, SN: 77771111153705700
 
@@ -128,7 +134,7 @@ $ sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
 
 
 <p>Et enfin, on fait un petit test du démodulateur FM pour écouter une radio:</p>
-<div class="highlight"><pre>$ rtl_fm -f 93.5M -s <span class="m">192000</span> -r <span class="m">48000</span> - <span class="p">|</span> aplay -r 48k -f S16_LE -t raw -c 1
+<div class="highlight"><pre><span></span>$ rtl_fm -f 93.5M -s <span class="m">192000</span> -r <span class="m">48000</span> - <span class="p">|</span> aplay -r 48k -f S16_LE -t raw -c 1
 </pre></div>
 
 
@@ -138,18 +144,15 @@ $ sudo cp ../rtl-sdr.rules /etc/udev/rules.d/
         </article>
     </section>
 
-
+        </div>
     </div>
-
 </div>
-<!-- /Content -->
-
 <footer>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 ptanguy
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+         <div class="col-xs-10">&copy; 2017 ptanguy
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
